@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STCKD — Reset password</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@700&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing:antialiased; }
+  body { background:#0d0c12 radial-gradient(ellipse 90% 40% at 50% -5%, rgba(142,123,255,.12), transparent) no-repeat;
+         color:#f4f2ff; font-family:'IBM Plex Sans',-apple-system,sans-serif; min-height:100vh;
+         display:flex; flex-direction:column; align-items:center; padding:64px 24px; }
+  .wordmark { font-family:'Sora',sans-serif; font-weight:700; font-size:22px; letter-spacing:.4em; color:#c9beff; }
+  .card { margin-top:48px; width:100%; max-width:420px; background:#16141d; border:1px solid rgba(255,255,255,.07);
+          border-radius:20px; padding:32px 28px; box-shadow:0 12px 32px rgba(0,0,0,.35); }
+  h1 { font-family:'Sora',sans-serif; font-size:22px; font-weight:700; }
+  p { color:#a9a4c0; font-size:15px; line-height:1.6; margin-top:10px; }
+  input { width:100%; margin-top:14px; background:#14121b; border:1px solid rgba(255,255,255,.07); border-radius:12px;
+          padding:14px 16px; font-size:16px; color:#f4f2ff; outline:none; font-family:inherit; }
+  input:focus { border-color:rgba(142,123,255,.6); }
+  button { width:100%; margin-top:20px; font-family:'Sora',sans-serif; font-weight:700; font-size:16px; color:#0d0c12;
+           background:linear-gradient(160deg,#9d8cff,#8e7bff); border:none; padding:15px 0; border-radius:12px;
+           cursor:pointer; box-shadow:0 8px 24px rgba(142,123,255,.25); }
+  button:disabled { opacity:.5; cursor:default; }
+  .msg { margin-top:16px; font-size:14px; padding:12px 14px; border-radius:10px; display:none; }
+  .msg.ok { display:block; background:rgba(58,223,165,.1); color:#3adfa5; }
+  .msg.err { display:block; background:rgba(240,112,74,.12); color:#f0704a; }
+</style>
+</head>
+<body>
+<p class="wordmark">STCKD</p>
+<div class="card">
+  <h1>Set a new password</h1>
+  <p id="hint">Choose a new password for your STCKD account (6+ characters).</p>
+  <form id="form">
+    <input type="password" id="pw1" placeholder="New password" autocomplete="new-password" minlength="6" required>
+    <input type="password" id="pw2" placeholder="Repeat new password" autocomplete="new-password" minlength="6" required>
+    <button type="submit" id="btn">Update password</button>
+  </form>
+  <p class="msg" id="msg"></p>
+</div>
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+  const supabase = createClient(
+    'https://uqiekramqotprubcixgq.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxaWVrcmFtcW90cHJ1YmNpeGdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYwMDQ2MjksImV4cCI6MjEwMTU4MDYyOX0.o1Qmjw95N00x9Ihjpj2Uh6duo6BlgBbGNggwjBeDYiA'
+  )
+
+  const form = document.getElementById('form')
+  const msg = document.getElementById('msg')
+  const btn = document.getElementById('btn')
+  const show = (text, ok) => { msg.textContent = text; msg.className = 'msg ' + (ok ? 'ok' : 'err') }
+
+  // The recovery link puts a session in the URL; supabase-js picks it up automatically.
+  const { data: { session } } = await supabase.auth.getSession()
+  if (!session) {
+    show('This reset link is invalid or has expired. Request a new one from the app.', false)
+    form.style.display = 'none'
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const p1 = document.getElementById('pw1').value
+    const p2 = document.getElementById('pw2').value
+    if (p1 !== p2) { show('Passwords do not match.', false); return }
+    btn.disabled = true
+    const { error } = await supabase.auth.updateUser({ password: p1 })
+    if (error) { show(error.message, false); btn.disabled = false }
+    else {
+      show('Password updated ✓ — open the STCKD app and log in.', true)
+      form.style.display = 'none'
+    }
+  })
+</script>
+</body>
+</html>
