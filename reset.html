@@ -42,7 +42,9 @@
   <p class="msg" id="msg"></p>
 </div>
 <script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+  // Self-hosted on purpose: this page holds a live password-recovery session,
+  // so it must not depend on a third-party CDN staying honest.
+  import { createClient } from './vendor/supabase-js-2.112.1.min.js'
   const supabase = createClient(
     'https://uqiekramqotprubcixgq.supabase.co',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxaWVrcmFtcW90cHJ1YmNpeGdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYwMDQ2MjksImV4cCI6MjEwMTU4MDYyOX0.o1Qmjw95N00x9Ihjpj2Uh6duo6BlgBbGNggwjBeDYiA'
