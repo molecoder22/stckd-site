@@ -3,38 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>STCKD — Privacy Policy</title>
+<meta name="description" content="What STCKD collects, why, who processes it, how long it is kept, and how to export or delete everything.">
+<link rel="canonical" href="https://stckd.app/privacy">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
 <style>
-  body { background:#000; color:#e5e5e5; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; max-width:680px; margin:0 auto; padding:48px 24px; line-height:1.7; }
-  h1 { color:#a78bfa; font-size:28px; } h2 { font-size:20px; margin-top:32px; }
-  a { color:#a78bfa; } .muted { color:#8a8a8a; font-size:14px; }
+  @font-face { font-family:'Sora'; font-weight:700; font-style:normal; font-display:swap; src:url('/fonts/sora-latin-700-normal.woff2') format('woff2'); }
+  @font-face { font-family:'IBM Plex Sans'; font-weight:400; font-style:normal; font-display:swap; src:url('/fonts/ibm-plex-sans-latin-400-normal.woff2') format('woff2'); }
+  @font-face { font-family:'IBM Plex Sans'; font-weight:600; font-style:normal; font-display:swap; src:url('/fonts/ibm-plex-sans-latin-600-normal.woff2') format('woff2'); }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#0d0c12; color:#e9e6f7; font-family:'IBM Plex Sans',-apple-system,sans-serif; line-height:1.7; font-size:16px; -webkit-font-smoothing:antialiased; }
+  main { max-width:700px; margin:0 auto; padding:56px 24px 96px; }
+  .wordmark { font-family:'Sora',sans-serif; font-weight:700; font-size:18px; letter-spacing:.4em; color:#c9beff; text-decoration:none; }
+  h1 { font-family:'Sora',sans-serif; font-size:32px; line-height:1.2; margin:28px 0 6px; color:#f4f2ff; }
+  h2 { font-family:'Sora',sans-serif; font-size:19px; margin:40px 0 10px; color:#f4f2ff; }
+  p, li { color:#c4bfdc; }
+  p { margin:0 0 14px; }
+  ul { padding-left: 22px; margin:0 0 14px; }
+  li { margin:4px 0; }
+  a { color:#a99bff; }
+  a:focus-visible { outline:2px solid #8e7bff; outline-offset:3px; border-radius:4px; }
+  .muted { color:#9a95b3; font-size:14px; }
+  strong { color:#f4f2ff; font-weight:600; }
+  table { border-collapse:collapse; width:100%; font-size:14.5px; margin:0 0 14px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid rgba(255,255,255,.08); vertical-align:top; color:#c4bfdc; }
+  th { color:#9a95b3; font-weight:600; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; }
+  .tbl { overflow-x:auto; }
+  footer { margin-top:56px; color:#9a95b3; font-size:14px; }
 </style>
 </head>
 <body>
-<h1>STCKD Privacy Policy</h1>
-<p class="muted">Last updated: August 6, 2026</p>
+<main>
+<a class="wordmark" href="/">STCKD</a>
+<h1>Privacy Policy</h1>
+<p class="muted">Last updated: September 11, 2026 · Version 2</p>
 
-<p>STCKD ("the app") is a supplement tracking app operated by Mário Otruba. This policy explains what data we collect and how we use it.</p>
+<p>STCKD is an iOS app for tracking supplements and peptides. This policy explains what data the app and this website handle, why, who processes it, how long it is kept, and what you can do about it. It is written to meet the GDPR (EU), the UK GDPR, the CCPA/CPRA (California) and PIPEDA (Canada).</p>
 
-<h2>What we collect</h2>
+<h2>1. Who is responsible</h2>
+<p>The data controller is <strong>Mário Otruba</strong>, an individual developer based in Slovakia (European Union). Contact: <a href="mailto:support@stckd.app">support@stckd.app</a>. There is no separate data-protection officer; the same address handles every privacy request.</p>
+
+<h2>2. What we collect and why</h2>
+<div class="tbl"><table>
+<tr><th>Data</th><th>Why</th><th>Legal basis (GDPR)</th></tr>
+<tr><td><strong>Account:</strong> your email address, and an anonymous identifier from Apple or Google if you sign in with them</td><td>Create and secure your account, send sign-up confirmation and password-reset emails</td><td>Contract (Art. 6(1)(b))</td></tr>
+<tr><td><strong>What you track:</strong> supplements and peptides, doses, stacks, schedules, intake history, notes, and your mood and energy log</td><td>Show it back to you and sync it between your devices when you are signed in</td><td>Contract (Art. 6(1)(b)); for health-related entries, your explicit consent given by entering them (Art. 9(2)(a))</td></tr>
+<tr><td><strong>Age confirmation:</strong> that you confirmed you are 18 or older, and when</td><td>Keep the app adult-only</td><td>Legal obligation and legitimate interest (Art. 6(1)(c), (f))</td></tr>
+<tr><td><strong>Technical logs:</strong> IP address and request metadata recorded briefly by our hosting provider</td><td>Security, abuse prevention, rate limiting</td><td>Legitimate interest (Art. 6(1)(f))</td></tr>
+<tr><td><strong>Purchase status:</strong> whether a STCKD Pro subscription is active</td><td>Unlock Pro features</td><td>Contract (Art. 6(1)(b))</td></tr>
+</table></div>
+<p>We never store your date of birth, payment details, location, contacts, photos or health-app data. The app does not use analytics, advertising SDKs, tracking pixels or session recording. If you use STCKD without an account, everything stays on your device and never reaches our servers.</p>
+
+<h2>3. Health-related information</h2>
+<p>Entries about compounds you take and how you feel can be health data. You decide what to enter. We store it only so the app can display it to you and sync it between your devices. It is never analyzed for medical purposes, never shared, and never used to make decisions about you. STCKD is a tracking tool, not a medical service, and nothing in it is medical advice.</p>
+
+<h2>4. Who processes it for us</h2>
+<div class="tbl"><table>
+<tr><th>Provider</th><th>What they do</th><th>Where</th><th>Safeguard</th></tr>
+<tr><td>Supabase</td><td>Database, authentication, secure storage of your synced data</td><td>United States (us-east)</td><td>Data-processing agreement with EU Standard Contractual Clauses; encryption in transit and at rest; row-level security so only your account can read your rows</td></tr>
+<tr><td>Resend</td><td>Sends account emails (confirmation, password reset)</td><td>United States</td><td>Data-processing agreement with Standard Contractual Clauses</td></tr>
+<tr><td>Apple</td><td>Sign in with Apple, App Store purchases and subscriptions, optional crash reports you choose to share with developers</td><td>Global</td><td>Apple Developer Program License Agreement; we never see payment details</td></tr>
+<tr><td>Google</td><td>Sign in with Google, only if you choose it</td><td>Global</td><td>Google API Services terms; we receive only your email and an identifier</td></tr>
+<tr><td>GitHub Pages</td><td>Hosts this website</td><td>Global</td><td>Static pages only; no cookies set by us</td></tr>
+</table></div>
+<p>We do not sell or share personal information for advertising, and we do not use it for cross-context behavioral advertising. No other third party receives your data.</p>
+
+<h2>5. International transfers</h2>
+<p>Our servers are in the United States. Transfers from the EU/EEA and UK rely on the providers' Standard Contractual Clauses listed above, plus encryption in transit and at rest.</p>
+
+<h2>6. How long we keep it</h2>
 <ul>
-  <li><strong>Account data:</strong> your email address, used solely to create and secure your account (email/password or Sign in with Apple).</li>
-  <li><strong>App content you create:</strong> your supplements, stacks, schedules, intake history, and mood/energy log entries.</li>
+  <li><strong>Account and tracked data:</strong> for as long as your account exists. When you delete your account in the app, the account and every synced record are removed immediately; copies in encrypted backups expire within 30 days.</li>
+  <li><strong>Guest data:</strong> only on your device; removing the app removes it.</li>
+  <li><strong>Technical logs:</strong> kept by our hosting provider for a short period for security, then deleted.</li>
+  <li><strong>Support emails:</strong> kept as long as needed to resolve your request, then deleted.</li>
 </ul>
 
-<h2>How it's stored</h2>
-<p>Your data is stored on your device and, when you're signed in, synced to our database hosted by Supabase. Data is protected by row-level security: only your authenticated account can read or write your records. We do not sell your data, show ads, or share your data with third parties for marketing.</p>
+<h2>7. Your rights and how to use them</h2>
+<ul>
+  <li><strong>Export</strong> everything you tracked as a JSON file: in the app, open Profile (tap your avatar on the Today screen) → <em>Export my data</em>.</li>
+  <li><strong>Delete</strong> your account and all data: Profile → <em>Delete account &amp; all data</em>. This is immediate and cannot be undone.</li>
+  <li><strong>Correct</strong> anything by editing it in the app.</li>
+  <li><strong>Access, restriction, objection, withdrawal of consent, portability:</strong> email <a href="mailto:support@stckd.app">support@stckd.app</a>. We answer within 30 days and never charge for it.</li>
+  <li><strong>Complain</strong> to a supervisory authority. Ours is the Office for Personal Data Protection of the Slovak Republic (Úrad na ochranu osobných údajov SR, <a href="https://dataprotection.gov.sk" rel="noopener">dataprotection.gov.sk</a>); you can also use the authority where you live.</li>
+</ul>
+<p><strong>California residents:</strong> you have the rights to know, delete, correct, and to non-discrimination. We do not sell or share personal information, so there is nothing to opt out of. <strong>Canada:</strong> you may withdraw consent and access or correct your information through the same channels.</p>
 
-<h2>Health disclaimer</h2>
-<p>STCKD is a tracking tool, not a medical service. Nothing in the app is medical advice. Log entries and supplement records are self-reported by you and are never analyzed for medical purposes.</p>
+<h2>8. Children</h2>
+<p>STCKD is for adults. You must be 18 or older to create an account or use the app, and the app asks you to confirm this. We do not knowingly collect data from anyone under 18; if we learn we have, we delete the account. Parents or guardians can write to <a href="mailto:support@stckd.app">support@stckd.app</a>.</p>
 
-<h2>Data deletion</h2>
-<p>You can delete your content in the app at any time. To delete your account and all associated data, contact us at <a href="mailto:support@stckd.app">support@stckd.app</a> and we will remove it within 30 days.</p>
+<h2>9. Security</h2>
+<p>All traffic uses HTTPS. On iOS your session token is stored in the system Keychain. Synced data is encrypted at rest and protected by row-level security, so only your authenticated account can read or write your records. Reminders are local notifications generated on your device; nothing is sent to a push server. No system is perfectly secure, so please use a strong, unique password.</p>
 
-<h2>Payments</h2>
-<p>Subscriptions are processed by Apple through your App Store account. We never see or store your payment details.</p>
+<h2>10. Cookies and this website</h2>
+<p>stckd.app sets no cookies and runs no analytics or third-party scripts. Fonts are served from this domain.</p>
 
-<h2>Contact</h2>
-<p><a href="mailto:support@stckd.app">support@stckd.app</a></p>
+<h2>11. Changes</h2>
+<p>When this policy changes we update the date and version above and, for material changes, tell you in the app. Earlier versions are available on request.</p>
+
+<h2>12. Contact</h2>
+<p><a href="mailto:support@stckd.app">support@stckd.app</a> · Mário Otruba, Slovakia</p>
+
+<footer>© 2026 Mário Otruba · <a href="/">stckd.app</a> · <a href="/terms">Terms of Service</a></footer>
+</main>
 </body>
 </html>

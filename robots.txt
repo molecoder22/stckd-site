@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /reset
+
+Sitemap: https://stckd.app/sitemap.xml

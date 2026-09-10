@@ -3,45 +3,74 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>STCKD — Know your stack.</title>
-<meta name="description" content="Track supplements, peptides, and protocols. Build your stack, stay consistent, feel the difference. Coming soon to the App Store.">
+<meta name="description" content="STCKD tracks your supplements and peptides in one app: stacks, schedules, reminders, a reconstitution calculator and a mood & energy log. Free on the App Store.">
+<link rel="canonical" href="https://stckd.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="STCKD">
 <meta property="og:title" content="STCKD — Know your stack.">
-<meta property="og:description" content="The cleanest way to track supplements, peptides, and protocols.">
-<meta property="og:url" content="https://stckd.app">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:description" content="Supplements and peptides, one tracker. Stacks, reminders, a reconstitution calculator and a feel log. Free on the App Store.">
+<meta property="og:url" content="https://stckd.app/">
+<meta property="og:image" content="https://stckd.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="STCKD — Know your stack.">
+<meta name="twitter:description" content="Supplements and peptides, one tracker. Free on the App Store.">
+<meta name="twitter:image" content="https://stckd.app/og.png">
+<meta name="apple-itunes-app" content="app-id=6799625782">
+<meta name="theme-color" content="#0d0c12">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/sora-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face { font-family:'Sora'; font-weight:700; font-style:normal; font-display:swap; src:url('/fonts/sora-latin-700-normal.woff2') format('woff2'); }
+  @font-face { font-family:'Sora'; font-weight:800; font-style:normal; font-display:swap; src:url('/fonts/sora-latin-800-normal.woff2') format('woff2'); }
+  @font-face { font-family:'IBM Plex Sans'; font-weight:400; font-style:normal; font-display:swap; src:url('/fonts/ibm-plex-sans-latin-400-normal.woff2') format('woff2'); }
+  @font-face { font-family:'IBM Plex Sans'; font-weight:600; font-style:normal; font-display:swap; src:url('/fonts/ibm-plex-sans-latin-600-normal.woff2') format('woff2'); }
   * { margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing:antialiased; }
   body {
     background:#0d0c12 radial-gradient(ellipse 90% 40% at 50% -5%, rgba(142,123,255,.12), transparent) no-repeat;
     color:#f4f2ff; font-family:'IBM Plex Sans',-apple-system,sans-serif; min-height:100vh;
     display:flex; flex-direction:column; align-items:center; padding:0 24px;
   }
-  .wrap { max-width:960px; width:100%; display:flex; flex-direction:column; align-items:center; text-align:center; }
+  a:focus-visible, button:focus-visible { outline:2px solid #8e7bff; outline-offset:3px; border-radius:6px; }
+  .skip { position:absolute; left:-999px; top:8px; background:#8e7bff; color:#0d0c12; padding:8px 12px; border-radius:8px; font-weight:600; }
+  .skip:focus { left:8px; }
+  main { max-width:960px; width:100%; display:flex; flex-direction:column; align-items:center; text-align:center; }
   .logo { margin-top:96px; }
   .wordmark { font-family:'Sora',sans-serif; font-weight:700; font-size:26px; letter-spacing:.4em; color:#c9beff; margin-top:28px; }
-  h1 { font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(40px,7vw,72px); letter-spacing:-.02em; margin-top:48px; line-height:1.1; }
-  .sub { color:#a9a4c0; font-size:clamp(17px,2.4vw,21px); line-height:1.6; margin-top:24px; max-width:560px; }
-  .cta { display:inline-block; margin-top:44px; font-family:'Sora',sans-serif; font-weight:700; font-size:17px;
-         color:#0d0c12; background:linear-gradient(160deg,#9d8cff,#8e7bff); padding:16px 36px; border-radius:14px;
+  h1 { font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(40px,7vw,72px); letter-spacing:-.02em; margin-top:48px; line-height:1.1; text-wrap:balance; }
+  .sub { color:#a9a4c0; font-size:clamp(17px,2.4vw,21px); line-height:1.6; margin-top:24px; max-width:560px; text-wrap:balance; }
+  .cta { display:inline-flex; align-items:center; gap:12px; margin-top:44px; font-family:'Sora',sans-serif; font-weight:700; font-size:17px;
+         color:#0d0c12; background:linear-gradient(160deg,#9d8cff,#8e7bff); padding:16px 32px; border-radius:14px;
          box-shadow:0 8px 32px rgba(142,123,255,.3); text-decoration:none; }
-  .soon { margin-top:14px; font-size:14px; color:#8b86a3; }
-  .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; margin-top:96px; width:100%; }
+  .cta svg { flex:none; }
+  .soon { margin-top:14px; font-size:14px; color:#9a95b3; }
+  .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; margin-top:96px; width:100%; }
   .card { background:#16141d; border:1px solid rgba(255,255,255,.07); border-radius:20px; padding:32px 28px; text-align:left;
           box-shadow:0 12px 32px rgba(0,0,0,.35); }
-  .card h3 { font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin-top:18px; }
+  .card h2 { font-family:'Sora',sans-serif; font-size:18px; font-weight:700; margin-top:18px; }
   .card p { color:#a9a4c0; font-size:15px; line-height:1.6; margin-top:8px; }
   .glyph { width:44px; height:44px; border-radius:14px; background:#1e1b27; border:1px solid rgba(255,255,255,.06);
            display:flex; align-items:center; justify-content:center; color:#9d8cff; }
-  footer { margin-top:120px; padding:40px 0 48px; color:#8b86a3; font-size:14px; display:flex; flex-direction:column; gap:12px; align-items:center; }
-  footer a { color:#a9a4c0; text-decoration:none; }
+  .note { margin-top:64px; max-width:620px; color:#9a95b3; font-size:14px; line-height:1.6; }
+  footer { margin-top:96px; padding:40px 0 48px; color:#9a95b3; font-size:14px; display:flex; flex-direction:column; gap:12px; align-items:center; }
+  footer a { color:#b3aed0; text-decoration:underline; text-underline-offset:3px; }
   footer a:hover { color:#c9beff; }
-  .links { display:flex; gap:20px; }
+  .links { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+  @media (prefers-reduced-motion: no-preference) { .cta { transition:transform .15s ease; } .cta:hover { transform:translateY(-1px); } }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <svg class="logo" width="120" height="120" viewBox="0 0 120 120" fill="none">
+<a class="skip" href="#main">Skip to content</a>
+<main id="main">
+  <svg class="logo" role="img" aria-label="STCKD logo" width="120" height="120" viewBox="0 0 120 120" fill="none">
     <path d="M60 46 24 64l36 18 36-18-36-18Z" fill="#6d5ce0" stroke="#6d5ce0" stroke-width="12" stroke-linejoin="round"/>
     <path d="M60 32 24 50l36 18 36-18-36-18Z" fill="#8e7bff" stroke="#8e7bff" stroke-width="12" stroke-linejoin="round"/>
     <path d="M60 18 24 36l36 18 36-18-36-18Z" fill="#c9beff" stroke="#c9beff" stroke-width="12" stroke-linejoin="round"/>
@@ -49,37 +78,47 @@
   <p class="wordmark">STCKD</p>
 
   <h1>Know your stack.</h1>
-  <p class="sub">The cleanest way to track supplements, peptides, and protocols. Build your stack, stay consistent, and see whether it's actually working.</p>
+  <p class="sub">Supplements and peptides, one tracker. Build your stack, get reminded, do the reconstitution math in seconds, and see whether it's actually working.</p>
 
-  <a class="cta" href="mailto:support@stckd.app?subject=STCKD%20early%20access">Get early access</a>
-  <p class="soon">Coming soon to the App Store</p>
+  <a class="cta" href="https://apps.apple.com/us/app/stckd-peptides-supplements/id6799625782">
+    <svg aria-hidden="true" width="20" height="24" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+    Download on the App Store
+  </a>
+  <p class="soon">Free for iPhone · Pro unlocks unlimited stacks, calendar and insights</p>
 
   <div class="features">
     <div class="card">
-      <div class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12.5 9 5 9-5"/></svg></div>
-      <h3>Build protocols</h3>
-      <p>Group compounds into stacks — morning nootropics, recovery, wind-down. One tap marks the whole stack taken.</p>
+      <div class="glyph" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 12.5 9 5 9-5"/></svg></div>
+      <h2>Build protocols</h2>
+      <p>Group compounds into stacks — morning nootropics, recovery, wind-down. Daily, weekdays or every X days, with reminders. One tap marks the whole stack taken.</p>
     </div>
     <div class="card">
-      <div class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-8M21 20H3"/></svg></div>
-      <h3>See it working</h3>
+      <div class="glyph" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M9 3v6l-5 9a2 2 0 0 0 1.7 3h12.6a2 2 0 0 0 1.7-3l-5-9V3"/></svg></div>
+      <h2>The math, done for you</h2>
+      <p>Reconstitution calculator: vial size, water, dose — get the exact syringe units, a round-number water tip and cost per dose.</p>
+    </div>
+    <div class="card">
+      <div class="glyph" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-8M21 20H3"/></svg></div>
+      <h2>See it working</h2>
       <p>Log mood and energy in seconds. Insights reveal your trends, so you know what your stack is actually doing.</p>
     </div>
     <div class="card">
-      <div class="glyph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M17.5 18.5h-11a4.5 4.5 0 0 1-.9-8.9A6 6 0 0 1 17.3 8a4.8 4.8 0 0 1 .2 10.5Z"/></svg></div>
-      <h3>Synced everywhere</h3>
-      <p>Sign in with Apple or email. Your data follows you across devices — private, secure, never sold.</p>
+      <div class="glyph" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M17.5 18.5h-11a4.5 4.5 0 0 1-.9-8.9A6 6 0 0 1 17.3 8a4.8 4.8 0 0 1 .2 10.5Z"/></svg></div>
+      <h2>Private and synced</h2>
+      <p>Sign in with Apple, Google or email. Your data follows you across devices — encrypted, never sold, deletable in one tap.</p>
     </div>
   </div>
 
+  <p class="note">STCKD is a tracking tool for adults, not medical advice. Talk to a healthcare professional before starting, stopping or combining any supplement or compound.</p>
+
   <footer>
     <div class="links">
-      <a href="/privacy.html">Privacy Policy</a>
-      <a href="/terms.html">Terms of Service</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
       <a href="mailto:support@stckd.app">support@stckd.app</a>
     </div>
-    <p>STCKD is a tracking tool, not medical advice. © 2026 STCKD</p>
+    <p>© 2026 Mário Otruba · STCKD</p>
   </footer>
-</div>
+</main>
 </body>
 </html>
