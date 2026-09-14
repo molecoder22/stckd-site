@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>STCKD — Reset password</title>
 <meta name="robots" content="noindex">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MyvC5WgubPyZevgl2cIXEy3EPjOgabDZfXWGOdEL8G8='; connect-src https://uqiekramqotprubcixgq.supabase.co; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Mjcr5E1A0T9/20zHOQDC5um52v4sQk/gabZYHtllp1A=' 'sha256-7Zdp77Yt89vtihDk+K6h0e9BLjOSaYWzPI42saW3oXc='; connect-src https://uqiekramqotprubcixgq.supabase.co; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="no-referrer">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <style>
@@ -50,9 +50,12 @@
   // Self-hosted on purpose: this page holds a live password-recovery session,
   // so it must not depend on a third-party CDN staying honest.
   import { createClient } from './vendor/supabase-js-2.112.1.min.js'
+  // The recovery session lives in memory only: nothing persists in this browser,
+  // which matters on a shared or borrowed computer.
   const supabase = createClient(
     'https://uqiekramqotprubcixgq.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxaWVrcmFtcW90cHJ1YmNpeGdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYwMDQ2MjksImV4cCI6MjEwMTU4MDYyOX0.o1Qmjw95N00x9Ihjpj2Uh6duo6BlgBbGNggwjBeDYiA'
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxaWVrcmFtcW90cHJ1YmNpeGdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYwMDQ2MjksImV4cCI6MjEwMTU4MDYyOX0.o1Qmjw95N00x9Ihjpj2Uh6duo6BlgBbGNggwjBeDYiA',
+    { auth: { persistSession: false, autoRefreshToken: false } }
   )
 
   const form = document.getElementById('form')
@@ -78,6 +81,7 @@
     else {
       show('Password updated ✓ — open the STCKD app and log in.', true)
       form.style.display = 'none'
+      await supabase.auth.signOut().catch(() => {})
     }
   })
 </script>
