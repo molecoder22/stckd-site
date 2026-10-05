@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://stckd.app/</loc><lastmod>2026-09-11</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://stckd.app/privacy</loc><lastmod>2026-09-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://stckd.app/terms</loc><lastmod>2026-09-11</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://stckd.app/</loc></url>
+  <url><loc>https://stckd.app/privacy</loc></url>
+  <url><loc>https://stckd.app/consumer-health-data</loc></url>
+  <url><loc>https://stckd.app/terms</loc></url>
+  <url><loc>https://stckd.app/cookies</loc></url>
+  <url><loc>https://stckd.app/delete-account</loc></url>
+  <url><loc>https://stckd.app/legal</loc></url>
+  <url><loc>https://stckd.app/health-disclaimer</loc></url>
+  <url><loc>https://stckd.app/accessibility</loc></url>
+  <url><loc>https://stckd.app/licenses</loc></url>
+  <url><loc>https://stckd.app/archive</loc></url>
 </urlset>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>if(location.protocol==="http:")location.replace(location.href.replace(/^http:/,"https:"))</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-Mjcr5E1A0T9/20zHOQDC5um52v4sQk/gabZYHtllp1A='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>STCKD — Delete Your Account and Data</title>
+<meta name="description" content="This page explains how to delete your STCKD account and your data, with or without the app, what is deleted straight away, and what stays for a while an…">
+<link rel="canonical" href="https://stckd.app/delete-account">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<style>
+  @font-face { font-family:'Sora'; font-weight:700; font-style:normal; font-display:swap; src:url('/fonts/sora-latin-700-normal.woff2') format('woff2'); }
+  @font-face { font-family:'IBM Plex Sans'; font-weight:400; font-style:normal; font-display:swap; src:url('/fonts/ibm-plex-sans-latin-400-normal.woff2') format('woff2'); }
+  @font-face { font-family:'IBM Plex Sans'; font-weight:600; font-style:normal; font-display:swap; src:url('/fonts/ibm-plex-sans-latin-600-normal.woff2') format('woff2'); }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#0d0c12; color:#e9e6f7; font-family:'IBM Plex Sans',-apple-system,sans-serif; line-height:1.7; font-size:16px; -webkit-font-smoothing:antialiased; }
+  main { max-width:760px; margin:0 auto; padding:56px 24px 64px; }
+  .skip { position:absolute; left:-9999px; }
+  .skip:focus { left:16px; top:16px; background:#16141d; color:#f4f2ff; padding:8px 12px; border-radius:8px; }
+  .wordmark { font-family:'Sora',sans-serif; font-weight:700; font-size:18px; letter-spacing:.4em; color:#c9beff; text-decoration:none; }
+  h1 { font-family:'Sora',sans-serif; font-size:32px; line-height:1.2; margin:28px 0 10px; color:#f4f2ff; text-wrap:balance; }
+  h2 { font-family:'Sora',sans-serif; font-size:19px; margin:40px 0 10px; color:#f4f2ff; scroll-margin-top:16px; }
+  h3 { font-family:'Sora',sans-serif; font-size:16px; margin:26px 0 8px; color:#f4f2ff; scroll-margin-top:16px; }
+  p, li { color:#c4bfdc; }
+  p { margin:0 0 14px; }
+  ul, ol { padding-left:22px; margin:0 0 14px; }
+  li { margin:4px 0; }
+  a { color:#b3a8ff; }
+  a:focus-visible { outline:2px solid #8e7bff; outline-offset:3px; border-radius:4px; }
+  code { font-size:.92em; background:#1e1b27; padding:1px 5px; border-radius:5px; }
+  strong { color:#f4f2ff; font-weight:600; }
+  .meta { margin:0 0 28px; padding:12px 16px; border:1px solid rgba(255,255,255,.1); border-radius:12px; font-size:14px; color:#a9a4c0; }
+  .meta p { margin:0; color:#a9a4c0; }
+  table { border-collapse:collapse; width:100%; font-size:14.5px; margin:0 0 14px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid rgba(255,255,255,.08); vertical-align:top; color:#c4bfdc; }
+  th { color:#a9a4c0; font-weight:600; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; }
+  .tbl { overflow-x:auto; }
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<main id="content">
+<a class="wordmark" href="/">STCKD</a>
+<h1>Delete Your Account and Data</h1>
+<div class="meta">
+<p><strong>Mário Otruba</strong>, Martina Hattalu 2973, 026 01 Dolný Kubín, Slovakia · support@stckd.app</p>
+<p>Effective: 6 October 2026 · Last updated: 6 October 2026 · Version 1 · <a href="/archive">Previous versions</a></p>
+</div>
+<p>This page explains how to delete your STCKD account and your data, with or without the app, what is deleted straight away, and what stays for a while and why.</p>
+<h2 id="in-app">1. Delete your account in the app</h2>
+<ol><li>Open STCKD and sign in.</li><li>On the Today screen, tap your avatar to open Profile.</li><li>Tap <strong>Delete account &amp; all data</strong>.</li><li>Read the confirmation and confirm.</li></ol>
+<p>The confirmation tells you what is deleted, what Apple keeps, and how long backups last.</p>
+<h2 id="deleted-now">2. What is deleted straight away</h2>
+<p>When you confirm, we delete:</p>
+<ul><li>your STCKD account (your sign-in record, email address and sign-in identifiers);</li><li>everything synced to our database: your compounds, doses, schedules, stacks, notes, injection sites, symptoms, mood, energy, weight and settings;</li><li>your data on the phone you used to delete the account, which is then signed out.</li></ul>
+<h2 id="what-remains">3. What stays for a while</h2>
+<p>Some copies cannot be removed instantly. We do not use them for anything, and they are deleted automatically:</p>
+<div class="tbl"><table>
+<thead><tr><th scope="col">What</th><th scope="col">How long</th><th scope="col">Why</th></tr></thead>
+<tbody>
+<tr><td>Database backups</td><td>up to 7 days after deletion (Supabase daily backups roll over)</td><td>Backups protect everyone's data against loss. Your data disappears from them as old backups are replaced.</td></tr>
+<tr><td>Sign-in and security logs (for example IP address, device details, sign-in times)</td><td>7 days (Supabase platform and sign-in logs)</td><td>Security and abuse prevention.</td></tr>
+<tr><td>Account emails sent to you (confirmation, password reset) in our email provider's logs</td><td>30 days (Resend delivery logs of account emails)</td><td>Delivery records kept by our email provider.</td></tr>
+<tr><td>Emails you sent to <a href="mailto:support@stckd.app">support@stckd.app</a></td><td>2 years after the conversation ends</td><td>To answer you and to show we handled requests properly.</td></tr>
+<tr><td>Purchase and subscription records</td><td>Kept by Apple under Apple's own privacy policy</td><td>Apple sells STCKD subscriptions, so Apple holds these records, not us.</td></tr>
+</tbody></table></div>
+<h2 id="subscription">4. Cancel your subscription separately</h2>
+<p><strong>Deleting your account or the app does not cancel STCKD Pro.</strong> Apple keeps billing you until you cancel. To cancel: iPhone Settings → your name → Subscriptions → STCKD → Cancel Subscription. You can also follow <a href="https://support.apple.com/en-us/118428" rel="noopener">Apple's guide</a>. The app reminds you of this before you delete your account.</p>
+<h2 id="sign-in-providers">5. Sign in with Apple or Google</h2>
+<p>If you used Sign in with Google, deleting your account also revokes STCKD's access to your Google account and signs you out of Google in the app.  If you used Sign in with Apple, you can stop using your Apple Account with STCKD at any time: iPhone Settings → your name → Sign-In &amp; Security → Sign in with Apple → STCKD → Stop Using Apple Account.</p>
+<p>You can also check this yourself:</p>
+<ul><li><strong>Apple:</strong> on your iPhone, open Settings, tap your name, then Sign-In &amp; Security, then Sign in with Apple, choose STCKD and stop using it. The exact menu names can differ between iOS versions.</li><li><strong>Google:</strong> in your Google Account, go to Security, then your connections to third-party apps and services, choose STCKD and remove its access.</li></ul>
+<h2 id="guest">6. If you used the app without an account</h2>
+<p>As a guest, your data is kept on your device only, until you delete the app or its data. We never receive it. To delete it, delete the STCKD app from your phone. This also removes a few settings that stay on the phone after an account is deleted in the app, such as your age confirmation and the numbers last used in the calculator.</p>
+<p>If your phone is backed up to iCloud or a computer, those backups may still contain a copy of the app's data until the backup is replaced or deleted.</p>
+<h2 id="without-app">7. Delete your account without the app</h2>
+<p>If you no longer have the app or cannot sign in:</p>
+<ol><li>Email <a href="mailto:support@stckd.app">support@stckd.app</a> <strong>from the email address of your STCKD account</strong>, with the subject "Delete my account".</li><li>If you used Sign in with Apple with "Hide My Email", write from, or tell us, the relay address Apple created for STCKD.</li><li>We check that the request really comes from the account holder. If we cannot tell from your email, we may send a message to the account's address and ask you to confirm. We never ask for your password.</li><li>We delete the account and its data within 30 days and confirm by email.</li></ol>
+<p>You can also use this route to ask for a copy of your data first. In the app, Profile also lets you export all your data as a file before you delete.</p>
+<h2 id="timeline">8. Timeline</h2>
+<div class="tbl"><table>
+<thead><tr><th scope="col">When</th><th scope="col">What happens</th></tr></thead>
+<tbody>
+<tr><td>Straight away (in the app)</td><td>Account, sign-in record and all synced data deleted; you are signed out on that phone.</td></tr>
+<tr><td>Within 30 days (by email)</td><td>We verify your request, delete the account and data, and confirm.</td></tr>
+<tr><td>Backups</td><td>up to 7 days after deletion (Supabase daily backups roll over)</td></tr>
+<tr><td>Sign-in and security logs</td><td>7 days (Supabase platform and sign-in logs)</td></tr>
+<tr><td>Account emails in our email provider's logs</td><td>30 days (Resend delivery logs of account emails)</td></tr>
+<tr><td>Your support emails</td><td>2 years after the conversation ends</td></tr>
+<tr><td>Apple purchase records</td><td>Apple's own retention</td></tr>
+<tr><td>Guest data on your phone</td><td>on your device only, until you delete the app or its data</td></tr>
+</tbody></table></div>
+<h2 id="questions">9. Questions</h2>
+<p>Write to <a href="mailto:support@stckd.app">support@stckd.app</a>. More about your rights and how we handle data is in the <a href="https://stckd.app/privacy">Privacy Policy</a> and the <a href="https://stckd.app/consumer-health-data">Consumer Health Data Privacy Policy</a>.</p>
+</main>
+<!-- legal-footer:start (generated by scripts/build-legal.py — edit FOOTER_LINKS there) -->
+<style>footer.legal{max-width:760px;margin:0 auto;padding:24px 24px 64px;border-top:1px solid rgba(255,255,255,.08);color:#a9a4c0;font:14px/1.6 'IBM Plex Sans',-apple-system,sans-serif;text-align:left}footer.legal nav{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:10px}footer.legal a{color:#b3a8ff;text-decoration:underline;text-underline-offset:3px}footer.legal a:focus-visible{outline:2px solid #8e7bff;outline-offset:3px;border-radius:4px}footer.legal p{margin:0;color:#a9a4c0}</style>
+<footer class="legal">
+  <nav aria-label="Legal">
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/consumer-health-data">Consumer Health Data Policy</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="/health-disclaimer">Health Disclaimer</a>
+    <a href="/cookies">Cookies</a>
+    <a href="/delete-account">Delete Account</a>
+    <a href="/legal">Legal Notice</a>
+    <a href="/accessibility">Accessibility</a>
+  </nav>
+  <p>© 2026 Mário Otruba · STCKD · <a href="mailto:support@stckd.app">support@stckd.app</a></p>
+</footer>
+<!-- legal-footer:end -->
+</body>
+</html>
