@@ -4,8 +4,8 @@
   "description": "Supplements and peptides, one tracker.",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#0d0c12",
-  "theme_color": "#0d0c12",
+  "background_color": "#0e0e0f",
+  "theme_color": "#0e0e0f",
   "icons": [
     { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
